@@ -1,0 +1,54 @@
+#+title: LispBook
+
+[[https://www.cs.cmu.edu/~dst/LispBook/book.pdf][LispBook]]
+
+* Symbolic Computation
+
+** Functions on Numbers
+
+- "+"  Add two numbers
+-  "-" Subtracts the second number from the first
+-  "*" Multiplies two numbers
+-  "/" Divides the first number by the second
+- "ABS" Absolute value of a number
+- "SQRT" Square root of a number
+
+#+title: LispBoo
+#+BEGIN_SRC lisp
+  (defun do-some-math (x y z)
+    "Multiplies 2 numbers"
+    (+ (* x 20)
+       (- y 10)
+       (* z 72)))
+
+  (do-some-math 100 50 80)
+
+  (defun multiply-two-or-many (x &optional y &rest operands)
+    (setq x (* x (or y 1)))
+    (dolist (operand operands)
+      (when operand
+        (setq x (* x operand))))
+    x)
+
+  (multiply-two-or-many 100 50 80)
+#+END_SRC
+
+- integer A sequence of digits ‘‘0’’ through ‘‘9,’’ optionally
+preceded by a plus or minus sign.
+- symbol Any sequence of letters, digits, and permissible
+special characters that is not a number.
+
+
+** Predicates
+
+Predicates are function that answers a question wit "T" or "NIL"
+A predicate is a question-answering function. Predicates output the symbol T
+when they mean yes and the symbol NIL when they mean no. The first
+predicate we will study is the one that tests whether its input is a number or
+not. It is called NUMBERP (pronounced ‘‘number-pee,’’ as in ‘‘number
+predicate’’)
+
+ex symbolp
+      numberp
+
+      

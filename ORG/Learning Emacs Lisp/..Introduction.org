@@ -1,0 +1,355 @@
+[[/img/sc_logo.png]]
+
+[[/][Home]] [[/guides/][Guides]] [[/courses/][Courses]] [[/news/][News]]
+[[/community/][Community]]
+[[https://store.systemcrafters.net?utm_source=sc-site-nav][Store]]
+[[/how-to-help/][How to Help]]
+
+* Introduction to Emacs Lisp
+  :PROPERTIES:
+  :CUSTOM_ID: introduction-to-emacs-lisp
+  :CLASS: site-post-title
+  :END:
+
+<<content>>
+
+** [[#what-will-we-cover][¶]]What will we cover?
+   :PROPERTIES:
+   :CUSTOM_ID: what-will-we-cover
+   :END:
+
+<<text-org8132349>>
+This is meant to be a practical series!
+
+- Emacs Lisp fundamentals
+- Everything about functions and variables
+- Manipulating Emacs
+- Working with the system
+- Creating and using extensibility points
+- Writing macros
+- Publishing to MELPA
+
+We will work on at least one new package as an example!
+
+#+ATTR_HTML: :class cta
+#+BEGIN_center
+If you find this guide helpful, please consider supporting System
+Crafters via the links on the [[/how-to-help/#support-my-work][How to
+Help]] page!
+#+END_center
+
+** [[#who-is-this-series-for][¶]]Who is this series for?
+   :PROPERTIES:
+   :CUSTOM_ID: who-is-this-series-for
+   :END:
+
+<<text-org1b29dec>>
+
+- Not only for programmers!
+- Everyone should get to enjoy hacking Emacs
+
+If you know Lisp well, don't worry if I skip concepts!
+
+** [[#what-is-lisp][¶]]What is Lisp?
+   :PROPERTIES:
+   :CUSTOM_ID: what-is-lisp
+   :END:
+
+<<text-org7e0dee1>>
+
+- That weird language with Lots of Irritating Superfluous Parentheses
+- A language and environment based on the idea of interactivity
+- The syntax enables new language constructs to be defined
+- The ultimate hacker language!
+
+** [[#emacs-lisp][¶]]Emacs Lisp
+   :PROPERTIES:
+   :CUSTOM_ID: emacs-lisp
+   :END:
+
+<<text-org696158b>>
+
+- A dialect of Lisp for configuring and extending Emacs
+- Much of Emacs' built-in functionality is written with it!
+- Has core features geared toward discoverability and extensibility
+- APIs and data types for many types special to Emacs (buffers, windows,
+  etc)
+
+We will focus on core concepts in this video!
+
+** [[#lisp-syntax][¶]]Lisp Syntax
+   :PROPERTIES:
+   :CUSTOM_ID: lisp-syntax
+   :END:
+
+<<text-org5f6b5f4>>
+The beauty of Lisp comes from the simplicity of its syntax!
+
+Lisp syntax is primarily composed of lists, symbols, and values.
+
+#+BEGIN_EXAMPLE
+  (defun the-meaning-of-life (answer)
+    (message "The answer is %s" answer))
+
+  ;; Newlines and whitespace can be added anywhere in lists
+  (list 1 2 3
+        4 5 6
+        7 8 9)
+#+END_EXAMPLE
+
+The code can also be treated as data!
+
+You shouldn't be afraid of editing code with parentheses, there are
+packages for that :)
+
+** [[#values-or-ldquoobjectsrdquo][¶]]Values (or “Objects”)
+   :PROPERTIES:
+   :CUSTOM_ID: values-or-objects
+   :END:
+
+<<text-org2e3c51a>>
+Any value, or object, has a type. It also has a textual representation
+that may or may not be “readable”!
+
+*** [[#lisp-types][¶]]Lisp Types
+    :PROPERTIES:
+    :CUSTOM_ID: lisp-types
+    :END:
+
+<<text-org9f7137e>>
+
+- Strings
+- Numbers (both integer and float)
+- Symbols
+- Cons cells
+- Arrays and Vectors
+- ... and more
+
+[[https://www.gnu.org/software/emacs/manual/html_node/elisp/Programming-Types.html#Programming-Types]]
+
+*** [[#emacs-types][¶]]Emacs Types
+    :PROPERTIES:
+    :CUSTOM_ID: emacs-types
+    :END:
+
+<<text-orgfb6d4b6>>
+There are many types specific to Emacs as well, most don't have a code
+representation:
+
+- Buffers
+- Windows
+- Frames
+- Threads
+- Keymaps
+- ...
+
+Things we do with these types can affect the Emacs interface:
+
+#+BEGIN_EXAMPLE
+  ;; Get the previous buffer and switch to it
+  (switch-to-buffer (other-buffer))
+#+END_EXAMPLE
+
+[[https://www.gnu.org/software/emacs/manual/html_node/elisp/Editing-Types.html#Editing-Types]]
+
+** [[#forms-and-evaluation][¶]]Forms and Evaluation
+   :PROPERTIES:
+   :CUSTOM_ID: forms-and-evaluation
+   :END:
+
+<<text-org6423f55>>
+A “form” is any lisp object that can be evaluated.
+
+*** [[#how-evaluation-works][¶]]How evaluation works
+    :PROPERTIES:
+    :CUSTOM_ID: how-evaluation-works
+    :END:
+
+<<text-orgb83b924>>
+Evaluation works differently for:
+
+- Lists
+- Symbols
+- All other object types
+
+Some are
+[[https://www.gnu.org/software/emacs/manual/html_node/elisp/Self_002dEvaluating-Forms.html#Self_002dEvaluating-Forms][self-evaluating]],
+meaning that they return their own value:
+
+#+BEGIN_EXAMPLE
+  ;; Primitives are usually self-evaluating
+  42
+
+  "Hello!"
+
+  [1 2 (+ 1 2)]
+
+  ;; Not self-evaluating!
+  buffer-file-name
+
+  ;; Evaluates a function!
+  (+ 300 11)
+
+  (300 100)
+
+  ;; Some representations can't be evaluated!
+  #<buffer Emacs-Lisp-01.org>
+#+END_EXAMPLE
+
+*** [[#the-ldquoenvironmentrdquo][¶]]The “Environment”
+    :PROPERTIES:
+    :CUSTOM_ID: the-environment
+    :END:
+
+<<text-orgf9602b4>>
+Everything is evaluated in terms of Emacs Lisp's global environment!
+
+Pros: you can change anything in the environment as you go Cons: your
+environment might get “dirty” over time in your Emacs session
+
+#+BEGIN_EXAMPLE
+  ;; Set the initial value
+  (setq efs/our-nice-variable "Hello System Crafters!")
+
+  ;; Change it to something else (even a different type!)
+  (setq efs/our-nice-variable 1337)
+#+END_EXAMPLE
+
+*** [[#expressions][¶]]Expressions
+    :PROPERTIES:
+    :CUSTOM_ID: expressions
+    :END:
+
+<<text-org6bf7071>>
+Lisp is an expression-based language, almost all forms return a value.
+
+#+BEGIN_EXAMPLE
+  ;; A very useful function...
+  (defun add-42 (num)
+    (+ num 42))
+
+  ;; It returns the result
+  (add-42 58)
+
+  ;; Using the result in another call
+  (* (add-42 58) 100)
+#+END_EXAMPLE
+
+** [[#symbols][¶]]Symbols
+   :PROPERTIES:
+   :CUSTOM_ID: symbols
+   :END:
+
+<<text-org64cf6a7>>
+A symbol is also a type of object, but it's not self-evaluating!
+
+Symbols can contain alphanumeric characters plus many others:
+
+#+BEGIN_EXAMPLE
+  # Possible symbol characters
+  - + = * / _ ~ ! @ $ % ^ & : < > { } ?
+#+END_EXAMPLE
+
+This gives you the ability to ascribe meanings to symbols based on the
+characters they contain. Some examples:
+
+- =bui-keyword->symbol= - Convert from one type to another
+- =efs/some-name= - Define a “namespace” for the symbol
+- =*pcache-repositories*= - Indicates a global variable (not common in
+  Emacs Lisp)
+- =string== - Check if something is equal to something else
+
+When a symbol is evaluated, it returns the variable value associated
+with that binding:
+
+#+BEGIN_EXAMPLE
+  ;; The example we saw before
+  buffer-file-name
+#+END_EXAMPLE
+
+Function names can't be evaluated like this though:
+
+#+BEGIN_EXAMPLE
+  get-file-buffer
+#+END_EXAMPLE
+
+We will discuss this point more in a future episode.
+
+[[https://www.gnu.org/software/emacs/manual/html_node/elisp/Symbol-Type.html#Symbol-Type]]
+
+** [[#infix-vs-prefix][¶]]Infix vs Prefix
+   :PROPERTIES:
+   :CUSTOM_ID: infix-vs-prefix
+   :END:
+
+<<text-orgd32dacc>>
+Lisp expressions use “prefix” notation:
+
+#+BEGIN_EXAMPLE
+  (+ 300 (- 12 1))
+#+END_EXAMPLE
+
+Why is this useful? Because it puts all functions and operators at the
+same level of importance, even the ones you define!
+
+** [[#exercise][¶]]Exercise
+   :PROPERTIES:
+   :CUSTOM_ID: exercise
+   :END:
+
+<<text-org7d9bc73>>
+Open up the =*scratch*= buffer and experiment with writing simple
+expressions. Use =C-x C-e= (=eval-last-sexp=) at the end of each
+expression to evaluate them.
+
+Here are some you can try:
+
+#+BEGIN_EXAMPLE
+  42
+
+  (* 42 10)
+
+  (concat "Hello " "Emacs!")
+
+  ;; Simple list
+  '(1 2 3)
+
+  ;; Another way to create a list
+  (list 1 2 3)
+
+  ;; Get the second list item
+  (car (cdr '(1 2 3)))
+
+  ;; A vector
+  [1 2 3]
+#+END_EXAMPLE
+
+Also, go take a look at your Emacs configuration and see what things you
+can recognize about it now!
+
+#+ATTR_HTML: :class list-form
+#+BEGIN_center
+
+Subscribe to the System Crafters Newsletter!
+
+Stay up to date with the latest System Crafters news and updates! Read
+the [[/newsletter/][Newsletter]] page for more information.
+
+#+ATTR_HTML: :class row list-form-label
+#+BEGIN_center
+Name (optional)
+#+END_center
+
+#+ATTR_HTML: :class row list-form-label
+#+BEGIN_center
+Email Address
+#+END_center
+
+#+END_center
+
+[[/privacy-policy/][Privacy Policy]] · [[/credits/][Credits]] ·
+[[/rss/][RSS Feeds]] · [[https://fosstodon.org/@daviwil][Fediverse]]
+
+© 2021-2024 · System Crafters LLC
+
+[[https://codeberg.org/SystemCrafters/systemcrafters.net][[[/img/codeberg.png]]]]

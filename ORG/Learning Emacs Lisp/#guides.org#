@@ -1,0 +1,220 @@
+[[/img/sc_logo.png]]
+
+[[/][Home]] [[/guides/][Guides]] [[/courses/][Courses]] [[/news/][News]]
+[[/community/][Community]]
+[[https://store.systemcrafters.net?utm_source=sc-site-nav][Store]]
+[[/how-to-help/]]
+
+Guides
+  :PROPERTIES:
+  :CUSTOM_ID: guides
+  :CLASS: site-post-title
+  :END:
+
+<<content>>
+** [[#complete-guides][¶]]Complete Guides
+   :PROPERTIES:
+   :CUSTOM_ID: complete-guides
+   :END:
+
+<<text-org9537e22>>
+/Comprehensive written guides are coming soon! Subscribe to the
+[[../newsletter][System Crafters Newsletter]] to be notified when new
+guides are released./
+
+** [[#video-series][¶]]Video Series
+   :PROPERTIES:
+   :CUSTOM_ID: video-series
+   :END:
+
+<<text-org1aacc36>>
+I've create a number of video tutorial series to help you learn GNU
+Emacs and GNU Guix in greater depth!
+
+*** [[#gnu-emacs][¶]]GNU Emacs
+    :PROPERTIES:
+    :CUSTOM_ID: gnu-emacs
+    :END:
+
+**** [[#emacs-essentials][¶]]Emacs Essentials
+     :PROPERTIES:
+     :CUSTOM_ID: emacs-essentials
+     :END:
+
+<<text-org5d3a797>>
+The [[../emacs-essentials/][Emacs Essentials]] series intends to teach
+you everything you need to know about the built-in functionality of GNU
+Emacs. Emacs beginners should start here, but seasoned Emacs users might
+learn a few hidden gems too!
+
+**** [[#emacs-from-scratch][¶]]Emacs From Scratch
+     :PROPERTIES:
+     :CUSTOM_ID: emacs-from-scratch
+     :END:
+
+<<text-org75c096b>>
+The [[../emacs-from-scratch/][Emacs From Scratch]] series is for users
+who know the basics and now want to create their own modern Emacs
+configuration. I take you step by step through the process of building
+up a fully custom configuration using many packages that are either
+built-in or authored by the Emacs community.
+
+**** [[#emacs-desktop-environment][¶]]Emacs Desktop Environment
+     :PROPERTIES:
+     :CUSTOM_ID: emacs-desktop-environment
+     :END:
+
+<<text-org543c1cb>>
+The [[../emacs-desktop-environment/][Emacs Desktop Environment]] series
+is a more advanced course where I show you how to build an entire
+desktop environment with Emacs and EXWM on Linux. If you want to truly
+“live” in Emacs, this is for you!
+
+**** [[#learning-emacs-lisp][¶]]Learning Emacs Lisp
+     :PROPERTIES:
+     :CUSTOM_ID: learning-emacs-lisp
+     :END:
+
+<<text-org62803ec>>
+In the [[../learning-emacs-lisp/][Learning Emacs Lisp]] series, I
+explain the core customization language of Emacs called Emacs Lisp. We
+start with the basics of the language and then embark on a project to
+build an Emacs package from scratch!
+
+**** [[#emacs-ide][¶]]Emacs IDE
+     :PROPERTIES:
+     :CUSTOM_ID: emacs-ide
+     :END:
+
+<<text-org57b3b18>>
+Emacs can also be used as an IDE (integrated development environment)
+like you might be used to from other editors. The [[../emacs-ide/][Emacs
+IDE]] series will show you how to set up Emacs as an IDE to get rich
+development functionality for many languages!
+
+**** [[#emacs-mail][¶]]Emacs Mail
+     :PROPERTIES:
+     :CUSTOM_ID: emacs-mail
+     :END:
+
+<<text-orge95b9dc>>
+Emacs can do many things, and this series will show you how you can use
+it to manage your e-mail! The [[../emacs-mail/][Emacs Mail]] series
+shows you how to use the mu4e package to build the most productive
+e-mail workflow you've ever had.
+
+**** [[#emacs-tips][¶]]Emacs Tips
+     :PROPERTIES:
+     :CUSTOM_ID: emacs-tips
+     :END:
+
+<<text-orgf73195f>>
+There are many interesting topics we can cover about Emacs that don't
+require their own dedicated series. The [[../emacs-tips/][Emacs Tips]]
+series is a collection of videos that will cover many other packages and
+configuration tricks we didn't get to in the other series!
+
+**** [[#mastering-git-with-magit][¶]]Mastering Git with Magit
+     :PROPERTIES:
+     :CUSTOM_ID: mastering-git-with-magit
+     :END:
+
+<<text-org8be1c1e>>
+The best interface for Git is in Emacs and it's called Magit! The
+[[../mastering-git-with-magit/][Mastering Git with Magit]] series will
+show you the ropes of how to use Magit to make all of your day to day
+source control operations ninja fast!
+
+**** [[#advanced-emacs-package-management][¶]]Advanced Emacs Package
+Management
+     :PROPERTIES:
+     :CUSTOM_ID: advanced-emacs-package-management
+     :END:
+
+<<text-org01fbe72>>
+The [[../advanced-package-management/][Advanced Emacs Package
+Management]] will teach more about how to use package managers like
+straight.el to manage Emacs packages in a more effective way!
+
+**** [[#build-a-second-brain-in-emacs][¶]]Build a Second Brain in Emacs
+     :PROPERTIES:
+     :CUSTOM_ID: build-a-second-brain-in-emacs
+     :END:
+
+<<text-orgc41377d>>
+Org Mode gives us the ability to organize our life in Emacs, but we can
+go even further by building a personal knowledgebase in Emacs using
+tools like Org Roam! The [[../build-a-second-brain-in-emacs/][Build a
+Second Brain in Emacs]] series will show you how to build a personal
+knowledge management and productivity workflow with these excellent
+packages.
+
+**** [[#publishing-websites-with-org-mode][¶]]Publishing Websites with
+Org Mode
+     :PROPERTIES:
+     :CUSTOM_ID: publishing-websites-with-org-mode
+     :END:
+
+<<text-org39806a9>>
+Org Mode has the ability to export to various other formats including
+HTML. We can use that capability to publish website directly from Emacs
+Org Mode. The [[../publishing-websites-with-org-mode/][Publishing
+Websites with Org Mode]] series will show you how to build and publish a
+website from Org Mode files using Emacs Lisp just like the one you're
+reading right now!
+
+**** [[#chatting-with-emacs][¶]]Chatting with Emacs
+     :PROPERTIES:
+     :CUSTOM_ID: chatting-with-emacs
+     :END:
+
+<<text-orgab8821f>>
+Want to chat with the communities around various free and open source
+projects from the comfort of Emacs? The
+[[../chatting-with-emacs/][Chatting with Emacs]] series will teach you
+how to do that!
+
+*** [[#gnu-guix][¶]]GNU Guix
+    :PROPERTIES:
+    :CUSTOM_ID: gnu-guix
+    :END:
+
+**** [[#craft-your-system-with-gnu-guix][¶]]Craft Your System with GNU
+Guix
+     :PROPERTIES:
+     :CUSTOM_ID: craft-your-system-with-gnu-guix
+     :END:
+
+<<text-orgd027cbc>>
+GNU Guix is an amazing tool for managing not only the programs you use,
+but also your entire system configuration. The
+[[../craft-your-system-with-guix/][Craft Your System with GNU Guix]]
+series will walk you through the process of learning and using Guix step
+by step so that you can craft your own repeatable system configuration!
+
+#+ATTR_HTML: :class list-form
+#+BEGIN_center
+
+Subscribe to the System Crafters Newsletter!
+
+Stay up to date with the latest System Crafters news and updates! Read
+the [[/newsletter/][Newsletter]] page for more information.
+
+#+ATTR_HTML: :class row list-form-label
+#+BEGIN_center
+Name (optional)
+#+END_center
+
+#+ATTR_HTML: :class row list-form-label
+#+BEGIN_center
+Email Address
+#+END_center
+
+#+END_center
+
+[[/privacy-policy/][Privacy Policy]] · [[/credits/][Credits]] ·
+[[/rss/][RSS Feeds]] · [[https://fosstodon.org/@daviwil][Fediverse]]
+
+© 2021-2024 · System Crafters LLC
+
+[[https://codeberg.org/SystemCrafters/systemcrafters.net][[[/img/codeberg.png]]]]
